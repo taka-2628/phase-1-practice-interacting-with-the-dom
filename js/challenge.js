@@ -5,7 +5,7 @@ let minusBtn = document.querySelector('#minus');
 let heartBtn = document.querySelector('#heart');
 let pauseBtn = document.querySelector('#pause');
 let buttons = document.querySelectorAll('button');
-// let submit = document.querySelector('#submit');
+let submit = document.querySelector('#submit');
 
 //let form = document.querySelector()
 let input = document.querySelector('#comment-input')
@@ -47,14 +47,20 @@ minusBtn.addEventListener('click', () => {
 //    displays the number of likes associated with the number displayed
 heartBtn.addEventListener('click', () => {
     let currentNum = counter.textContent;
-    likeTrackerObj[currentNum] = likeTrackerObj[currentNum] || 0;
-    likeTrackerObj[currentNum] += 1
-    // use for ... in statement to 
-    for (key in likeTrackerObj){
+    //likeTrackerObj[currentNum] = likeTrackerObj[currentNum] || 0;
+    //likeTrackerObj[currentNum] += 1
+    if (!likeTrackerObj.hasOwnProperty(currentNum)){
+        likeTrackerObj[currentNum] = 0
+        likeTrackerObj[currentNum] += 1
         let li = document.createElement('li');
-        li.id = key;
-        li.textContent = (`${key} has been liked ${likeTrackerObj[key]} times`);
-        numLikeCountList.appendChild(li);
+        li.id = currentNum;
+        li.innerHTML = (`${currentNum} has been liked <span>1</span> time`);
+        numLikeCountList.appendChild(li)
+    } else {
+        likeTrackerObj[currentNum] = likeTrackerObj[currentNum];
+        likeTrackerObj[currentNum] += 1
+        let theLi = document.getElementById(`${currentNum}`);
+        theLi.innerHTML = (`${currentNum} has been liked <span>${likeTrackerObj[currentNum]}</span> time`)
     }
 })
 
@@ -104,4 +110,4 @@ submit.addEventListener('click', (e) => {
 })
 
 // Initiate the countUp funtion
-// document.addEventListener('DOMContentLoaded', countUp);
+document.addEventListener('DOMContentLoaded', countUp);
