@@ -46,19 +46,27 @@ minusBtn.addEventListener('click', () => {
 //    displays the number of likes associated with the number displayed
 heartBtn.addEventListener('click', () => {
     let currentNum = counter.textContent;
-    //likeTrackerObj[currentNum] = likeTrackerObj[currentNum] || 0;
-    //likeTrackerObj[currentNum] += 1
+    // use if statement: 
+    //    if likeTrackerObj does NOT have currentNum as a key yet (meaning the number is liked for the first time)
     if (!likeTrackerObj.hasOwnProperty(currentNum)){
+        // create the key-value pair and set the value to 0
         likeTrackerObj[currentNum] = 0
+        // add 1 to the value 
         likeTrackerObj[currentNum] += 1
+        // create <li> and assign it to a varible li
         let li = document.createElement('li');
+        // make the id of <li> currentNum
         li.id = currentNum;
+        // create the content of <li>: `${currentNum} has been liked <span>1</span> time`
         li.innerHTML = (`${currentNum} has been liked <span>1</span> time`);
+        // add <li> to DOM by appending it to numLikeCountList 
         numLikeCountList.appendChild(li)
-    } else {
-        likeTrackerObj[currentNum] = likeTrackerObj[currentNum];
+    } else { // in this case, else handles if likeTrackerObj DOES have currentNum as a key alrady (meaning the number has been liked before)
+        // add 1 to the value that the key currentNum points to 
         likeTrackerObj[currentNum] += 1
+        // grab the <li> by its id which is currentNum and assign it to a variable theLi
         let theLi = document.getElementById(`${currentNum}`);
+        // update the content of <li> to: `${currentNum} has been liked <span>${likeTrackerObj[currentNum]}</span> time`
         theLi.innerHTML = (`${currentNum} has been liked <span>${likeTrackerObj[currentNum]}</span> time`)
     }
 })
