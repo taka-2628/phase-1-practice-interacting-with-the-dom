@@ -42,7 +42,7 @@ minusBtn.addEventListener('click', () => {
 
 // HEART BUTTON
 // When clicked, it 
-//    counts the number of times an individual number of the counter is liked 
+//    counts the number of times an individual number on the counter is liked 
 //    displays the number of likes associated with the number displayed
 heartBtn.addEventListener('click', () => {
     let currentNum = counter.textContent;
@@ -66,7 +66,7 @@ heartBtn.addEventListener('click', () => {
 // PAUSE BUTTON
 // When clicked, it
 //    stops the timer 
-//    disables the PLUS/MINUS/HEART/COMMENT
+//    disables the PLUS/MINUS/HEART/SUBMIT
 //    switches the label from "pause" to "resume"
 pauseBtn.addEventListener('click', () => {
     let currentStatus = pauseBtn.textContent
@@ -109,4 +109,5 @@ submit.addEventListener('click', (e) => {
 })
 
 // Initiate the countUp funtion
-//document.addEventListener('DOMContentLoaded', countUp);
+document.addEventListener('DOMContentLoaded', countUp);
+
