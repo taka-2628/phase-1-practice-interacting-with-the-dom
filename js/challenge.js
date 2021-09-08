@@ -7,7 +7,6 @@ let pauseBtn = document.querySelector('#pause');
 let buttons = document.querySelectorAll('button');
 let submit = document.querySelector('#submit');
 
-//let form = document.querySelector()
 let input = document.querySelector('#comment-input')
 
 let numLikeCountList = document.querySelector('.likes');
