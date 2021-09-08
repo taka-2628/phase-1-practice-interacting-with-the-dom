@@ -5,8 +5,8 @@ let minusBtn = document.querySelector('#minus');
 let heartBtn = document.querySelector('#heart');
 let pauseBtn = document.querySelector('#pause');
 let buttons = document.querySelectorAll('button');
-let submit = document.querySelector('#submit');
 
+let submit = document.querySelector('#submit');
 let input = document.querySelector('#comment-input')
 
 let numLikeCountList = document.querySelector('.likes');
@@ -18,7 +18,7 @@ let timer;
 let likeTrackerObj = {}
 
 // Write a function countUp() that
-//    creates a timer that increments every second once the page has loaded
+//    assign timer a setInterval() method that increments every second once the page has loaded
 function countUp(){
     timer = setInterval(() => {
         let currentNum = parseInt(counter.textContent);
@@ -109,4 +109,4 @@ submit.addEventListener('click', (e) => {
 })
 
 // Initiate the countUp funtion
-document.addEventListener('DOMContentLoaded', countUp);
+//document.addEventListener('DOMContentLoaded', countUp);
